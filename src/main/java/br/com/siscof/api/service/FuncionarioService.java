@@ -1,5 +1,7 @@
 package br.com.siscof.api.service;
 
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.siscof.api.model.Funcionario;
 import br.com.siscof.api.repository.FuncionarioRepository;
+import br.com.siscof.api.repository.filter.FuncionarioFilter;
 
 @Service
 public class FuncionarioService {
@@ -27,6 +30,12 @@ public class FuncionarioService {
 			throw new EmptyResultDataAccessException(1);
 		}
 		return funcionarioSalvo;
+	}
+	
+	public  List<Funcionario> filtrar(FuncionarioFilter filtro) {
+		 List<Funcionario> listaFuncionario= funcionarioRepository.filtrar(filtro);
+		
+		return listaFuncionario;
 	}
 	
 }

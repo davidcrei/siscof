@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.siscof.api.event.RecursoCriadoEvent;
 import br.com.siscof.api.model.Funcionario;
 import br.com.siscof.api.repository.FuncionarioRepository;
+import br.com.siscof.api.repository.filter.FuncionarioFilter;
 import br.com.siscof.api.service.FuncionarioService;
 
 @RestController
@@ -37,10 +39,11 @@ public class FuncionarioResource {
 	private ApplicationEventPublisher publisher;
 	
 	@GetMapping
-	public List<Funcionario>lista(){
-		return repository.findAll();
+	public List<Funcionario>pesquisar(FuncionarioFilter funcionarioFilter){
+		return repository.filtrar(funcionarioFilter);
 	}
 	
+		
 	@PostMapping
 	public ResponseEntity<Funcionario> criar(@Valid @RequestBody Funcionario funcionario, HttpServletResponse response) {
 		Funcionario funcionarioSalvo = repository.save(funcionario);
@@ -66,4 +69,6 @@ public class FuncionarioResource {
 		Funcionario funcionarioSalvo = funcioanrioService.atualizar(codigo, funcionario);
 		return ResponseEntity.ok(funcionarioSalvo);
 	}
+	
+	
 }

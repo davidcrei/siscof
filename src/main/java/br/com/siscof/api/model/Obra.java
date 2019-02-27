@@ -18,7 +18,7 @@ public class Obra {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY) 
 	private Integer id;
 	
-	@Column(name = "name")
+	@Column(name = "nome")
 	private String nome;
 	private String cnpj;
 	
