@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.siscof.api.model.Funcionario;
 import br.com.siscof.api.repository.FuncionarioRepository;
 import br.com.siscof.api.repository.filter.FuncionarioFilter;
-
+//Servico Funcionario
 @Service
 public class FuncionarioService {
 
