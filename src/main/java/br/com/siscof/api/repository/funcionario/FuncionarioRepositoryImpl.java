@@ -45,8 +45,7 @@ public class FuncionarioRepositoryImpl implements FuncionarioRepositoryQuery{
 		}
 		
 		if (!StringUtils.isEmpty(funcionarioFilter.getCpf())) {
-			predicates.add(builder.equal(
-					builder.lower(root.get("cpf")), "%" + funcionarioFilter.getCpf().toLowerCase() + "%"));
+			predicates.add(builder.equal(builder.lower(root.get("cpf")),funcionarioFilter.getCpf()));
 		}
 		
 				

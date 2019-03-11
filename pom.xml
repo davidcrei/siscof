@@ -53,6 +53,13 @@
 			<scope>runtime</scope>
 		</dependency>
 		
+		<!--H2 Banco Memoria -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>	
+			
 				
 		<!-- Hibernate Java 8 Support -->
 		<dependency>
