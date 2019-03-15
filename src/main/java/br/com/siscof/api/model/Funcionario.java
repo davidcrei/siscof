@@ -23,7 +23,7 @@ public class Funcionario {
 	private String cpf;
 	
 	@Column(name="dataInicio",updatable=true,nullable=true)
-	@Temporal(TemporalType.TIMESTAMP )
+	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataInicio;
 	
 	@OneToOne
